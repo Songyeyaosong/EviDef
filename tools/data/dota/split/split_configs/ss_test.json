@@ -1,0 +1,26 @@
+{
+  "nproc": 24,
+  "img_dirs": [
+    "D:/DOTA2/test/images/"
+  ],
+  "ann_dirs": null,
+  "sizes": [
+    800
+  ],
+  "gaps": [
+    150
+  ],
+  "rates": [
+    1.0
+  ],
+  "img_rate_thr": 0.6,
+  "iof_thr": 0.7,
+  "no_padding": false,
+  "padding_value": [
+    104,
+    116,
+    124
+  ],
+  "save_dir": "E:/split_ss_dota2/test/",
+  "save_ext": ".png"
+}

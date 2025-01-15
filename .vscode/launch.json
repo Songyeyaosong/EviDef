@@ -1,0 +1,539 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "edl_swin_train",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_swin_fpn_fp16_1x_dota_ms_rr_le90/oriented_rcnn_teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_swin_fpn_fp16_1x_dota_ms_rr_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "edl_b_test",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/r50_fpn_fp16_1x_dota_le90/oriented_rcnn_r50_fpn_fp16_1x_dota_le90.py",
+                "work_dir_dota/calibrate_oriented_rcnn/r50_fpn_fp16_1x_dota_le90/latest.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "open_train",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/edl_open_kl_xcor_corall_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_edl_open_kl_xcor_corall_r50_fpn_fp16_20e_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "teef_test",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_20e_dota_le90.py",
+                "work_dir_dota/calibrate_oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_20e_dota_le90/latest.pth",
+                "--out",
+                "work_dir_dota/calibrate_oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_20e_dota_le90/out.pkl"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "confusion_matrix",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/analysis_tools/confusion_matrix.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/r50_fpn_fp16_1x_dota_le90/oriented_rcnn_r50_fpn_fp16_1x_dota_le90.py",
+                "work_dir_dota/calibrate_oriented_rcnn/r50_fpn_fp16_1x_dota_le90/out.pkl",
+                "work_dir_dota/calibrate_oriented_rcnn/r50_fpn_fp16_1x_dota_le90"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "show_heat_map",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_1x_dota_ms_rr_le90/oriented_rcnn_teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_1x_dota_ms_rr_le90.py",
+                "work_dir_dota/oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_1x_dota_ms_rr_le90/latest.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": false
+        },
+        {
+            "name": "test_gaussian_noise",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/r50_fpn_fp16_1x_dota_le90/oriented_rcnn_r50_fpn_fp16_1x_dota_le90.py",
+                "work_dir_dota/calibrate_oriented_rcnn/r50_fpn_fp16_1x_dota_le90/latest.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": false
+        },
+        {
+            "name": "hrsc_show",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_hrsc/oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_6x_hrsc_le90/oriented_rcnn_teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_6x_hrsc_le90.py",
+                "work_dir_hrsc/oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_6x_hrsc_le90/latest.pth",
+                "--show"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "test_teef_roi_trans",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/roi_trans/teef_r50_fpn_fp16_1x_le90/roi_trans_teef_r50_fpn_fp16_1x_dota_le90.py",
+                "work_dir_dota/roi_trans/teef_r50_fpn_fp16_1x_le90/latest.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "debug_teef_oriented_rcnn",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_1x_dota_ms_rr_le90/oriented_rcnn_teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_r50_fpn_fp16_1x_dota_ms_rr_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "teef",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_swin_fpn_fp16_1x_dota_ms_rr_le90/oriented_rcnn_teef_v2_edl_kl_xcor_corall_le0.15_lt0.25_swin_fpn_fp16_1x_dota_ms_rr_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "tem_edl",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/tem_edl_kl_xcor_corall_le0.25_lt0.25_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_tem_edl_kl_xcor_corall_le0.25_lt0.25_r50_fpn_fp16_20e_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "calibration_u_old",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/edl_rx_balance_xcor_corw1.5_regw1.5_lt1_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_edl_rx_balance_xcor_corw1.5_regw1.5_lt1_r50_fpn_fp16_20e_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "calibration_u",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/edl_rx_cor_lt1_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_edl_rx_cor_lt1_r50_fpn_fp16_20e_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "calibration_u_test",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/calibrate_oriented_rcnn/edl_v5_lt0_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_edl_v5_lt0_r50_fpn_fp16_20e_dota_le90.py",
+                "work_dir_dota/calibrate_oriented_rcnn/edl_v5_lt0_r50_fpn_fp16_20e_dota_le90/latest.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "focal_ce_loss",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/focal_r50_fpn_fp16_1x_dota_le90/oriented_rcnn_focal_r50_fpn_fp16_1x_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "tem_oriented_rcnn",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/tem_r50_fpn_fp16_1x_dota_le90/oriented_rcnn_tem_r50_fpn_fp16_1x_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "test_edl_oriented_rcnn",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/edl_rx_balance_xcor_lr4e-3_lt1_rrw[0.2_0.6]_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_edl_rx_balance_xcor_lr4e-3_lt1_rrw[0.2_0.6]_r50_fpn_fp16_20e_dota_le90.py",
+                "work_dir_dota/oriented_rcnn/edl_rx_balance_xcor_lr4e-3_lt1_rrw[0.2_0.6]_r50_fpn_fp16_20e_dota_le90/latest.pth",
+                "--format-only"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "edl_oriented_rcnn",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/edl_v6_lt1_r50_fpn_fp16_20e_dota_le90/oriented_rcnn_edl_v6_lt1_r50_fpn_fp16_20e_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "test_tedf_oriented_rcnn",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/tedf_r50_fpn_fp16_1x_dota_le90/oriented_rcnn_tedf_r50_fpn_fp16_1x_dota_le90.py",
+                "work_dir_dota/oriented_rcnn/tedf_r50_fpn_fp16_1x_dota_le90/latest.pth",
+                "--show"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "tedf_oriented_rcnn",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/oriented_rcnn/tedf_v3_lr1e-3_r50_fpn_fp16_2x_dota_le90/oriented_rcnn_tedf_v3_lr1e-3_r50_fpn_fp16_2x_dota_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "test_tedf_roi_trans",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/roi_trans/tedf_v4_lr5e-4_w0.05_lt1.1_r101_fpn_fp16_20e_rr_le90/roi_trans_tedf_v4_lr5e-4_w0.05_lt1.1_r101_fpn_fp16_20e_dota_rr_le90.py",
+                "work_dir_dota/roi_trans/tedf_v4_lr5e-4_w0.05_lt1.1_r101_fpn_fp16_20e_rr_le90/epoch_19.pth",
+                "--show"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "tedf_roi_trans",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/roi_trans/tedf_v4_lr5e-4_w0.05_lt1.1_r101_fpn_fp16_20e_rr_le90/roi_trans_tedf_v4_lr5e-4_w0.05_lt1.1_r101_fpn_fp16_20e_dota_rr_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "exp_edl_s2anet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/edl_s2anet/exp_none_lt1.1_lr1e-3_r50_fpn_fp16_20e_le135/edl_s2anet_exp_none_lt1.1_lr1e-3_r50_fpn_fp16_20e_dota_le135.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "single_level_test",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/s2anet/r50_fpn_fp16_20e_rr_le135/s2anet_r50_fpn_fp16_20e_rr_dota_le135.py",
+                "work_dir_dota/s2anet/r50_fpn_fp16_20e_rr_le135/latest.pth",
+                "--show"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "ug_s2anet_test",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/ug_s2anet/r50_fpn_fp16_20e_le135/ug_s2anet_r50_fpn_fp16_20e_dota_le135.py",
+                "work_dir_dota/ug_s2anet/r50_fpn_fp16_20e_le135/latest.pth",
+                "--show"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "ug_s2anet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/ug_s2anet/r50_fpn_fp16_20e_le135/ug_s2anet_r50_fpn_fp16_20e_dota_le135.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "eval",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/tem_s2anet/r101_fpn_fp16_20e_rr_le135/tem_s2anet_r101_fpn_fp16_20e_rr_dota_le135.py",
+                "work_dir_dota/tem_s2anet/r101_fpn_fp16_20e_rr_le135/latest.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "edl_tem_s2anet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/edl_tem_s2anet/none_lt1.1_lr1e-3_r50_fpn_fp16_28e_le135/edl_tem_s2anet_none_lt1.1_lr1e-3_r50_fpn_fp16_28e_dota_le135.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "show",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/tem_s2anet/r101_fpn_fp16_20e_rr_le135/tem_s2anet_r101_fpn_fp16_20e_rr_dota_le135.py",
+                "work_dir_dota/tem_s2anet/r101_fpn_fp16_20e_rr_le135/latest.pth",
+                "--show",
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "fusion_retinanet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/fusion_retinanet/obb_r50_fpn_fp16_1x_le90/fusion_retinanet_obb_r50_fpn_fp16_1x_le90.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "plot_curve",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/analysis_tools/analyze_logs.py",
+            "console": "integratedTerminal",
+            "args": [
+                "plot_curve",
+                "work_dir_sodaa/edl_aligned_res_fusion_s2anet/bs4_lr2.5e-5_r50_fpn_fp16_1x_le135/20230803_202954.log.json",
+                "--keys",
+                "loss"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "test_edl",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_sodaa/edl_aligned_res_fusion_s2anet/bs4_lr2.5e-5_r50_fpn_fp16_1x_le135/edl_aligned_res_fusion_s2anet_bs4_lr2.5e-5_r50_fpn_fp16_1x_sodaa_le135.py",
+                "work_dir_sodaa/edl_aligned_res_fusion_s2anet/bs4_lr2.5e-5_r50_fpn_fp16_1x_le135/latest.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "edl_res_fusion_s2anet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_sodaa/edl_res_fusion_s2anet/bs4_lr2.5e-5_r50_fpn_fp16_1x_le135/edl_res_fusion_s2anet_bs4_lr2.5e-5_r50_fpn_fp16_1x_sodaa_le135.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "edl_aligned_res_fusion_s2anet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_sodaa/edl_aligned_res_fusion_s2anet/21net/edl_aligned_res_fusion_s2anet_bs4_lr2.5e-5_r50_fpn_fp16_1x_sodaa_le135.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "edl_aligned_fusion_s2anet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_sodaa/edl_aligned_fusion_s2anet/bs4_lr2.5e-5_r50_fpn_fp16_1x_le135/edl_aligned_fusion_s2anet_bs4_lr2.5e-5_r50_fpn_fp16_1x_sodaa_le135.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "edl_fusion_s2anet",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/train.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_sodaa/edl_fusion_s2anet/bs4_lr2.5e-3_r50_fpn_fp16_1x_le135/edl_fusion_s2anet_bs4_lr2.5e-3_r50_fpn_fp16_1x_sodaa_le135.py",
+                "--seed",
+                "123"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "dota_test_merge",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/dota_test_eval/dota_test_eval.py",
+                "work_dir_dota/dota_test_eval/dota_test_eval.pth",
+                "--format-only"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "sodaa_test_eval",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_sodaa/sodaa_test_eval/sodaa_test_eval.py",
+                "work_dir_sodaa/sodaa_test_eval/sodaa_test_eval.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": true
+        },
+        {
+            "name": "dota_test_eval",
+            "type": "python",
+            "request": "launch",
+            "program": "tools/test.py",
+            "console": "integratedTerminal",
+            "args": [
+                "work_dir_dota/dota_test_eval/dota_test_eval.py",
+                "work_dir_dota/dota_test_eval/dota_test_eval.pth",
+                "--eval",
+                "mAP"
+            ],
+            "justMyCode": true
+        }
+    ]
+}
