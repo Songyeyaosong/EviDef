@@ -1,1 +1,1 @@
-Code for paper: EviDef: Dynamic Context-aware Evidential Fusion for Trustworthy Remote Sensing Object Recognition in Complex Environments.
+Code for paper: Uncertainty-aware Dyamic Context Evidential Fusion for Trustworthy RemoteSensing Object Recognition
