@@ -250,10 +250,10 @@ class RotatedTeefRoIHead(BaseModule, metaclass=ABCMeta):
 
         det_bboxes, det_labels = await self.async_test_bboxes(
             x, img_metas, proposal_list, self.test_cfg, rescale=rescale)
-        bbox_results = rbbox2result(det_bboxes, det_labels,
-                                    self.bbox_head.num_classes)
-        # bbox_results = edl_rbbox2result(det_bboxes, det_labels,
-        #                                 self.bbox_head.num_classes)
+        # bbox_results = rbbox2result(det_bboxes, det_labels,
+        #                             self.bbox_head.num_classes)
+        bbox_results = edl_rbbox2result(det_bboxes, det_labels,
+                                        self.bbox_head.num_classes)
         return bbox_results
 
     def simple_test(self, x, ted3_x, proposal_list, img_metas, rescale=False):

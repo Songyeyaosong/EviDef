@@ -145,11 +145,11 @@ class OrientedTeefRoIHead(RotatedTeefRoIHead):
         ted3_bbox_results = self._ted3_bbox_forward(ted3_x, rois)
 
         p_e = F.softmax(bbox_results['cls_score'], dim=1)
-        # e_sum = torch.exp(bbox_results['e_sum'])
-        e_sum = F.softplus(bbox_results['e_sum'])
+        e_sum = torch.exp(bbox_results['e_sum'])
+        # e_sum = F.softplus(bbox_results['e_sum'])
         ted3_p_e = F.softmax(ted3_bbox_results['ted3_cls_score'], dim=1)
-        # ted3_e_sum = torch.exp(ted3_bbox_results['ted3_e_sum'])
-        ted3_e_sum = F.softplus(ted3_bbox_results['ted3_e_sum'])
+        ted3_e_sum = torch.exp(ted3_bbox_results['ted3_e_sum'])
+        # ted3_e_sum = F.softplus(ted3_bbox_results['ted3_e_sum'])
         e = e_sum * p_e
         ted3_e = ted3_e_sum * ted3_p_e
 
@@ -214,11 +214,11 @@ class OrientedTeefRoIHead(RotatedTeefRoIHead):
 
         # split batch bbox prediction back to each image
         p_e = F.softmax(bbox_results['cls_score'], dim=1)
-        # e_sum = torch.exp(bbox_results['e_sum'])
-        e_sum = F.softplus(bbox_results['e_sum'])
+        e_sum = torch.exp(bbox_results['e_sum'])
+        # e_sum = F.softplus(bbox_results['e_sum'])
         ted3_p_e = F.softmax(ted3_bbox_results['ted3_cls_score'], dim=1)
-        # ted3_e_sum = torch.exp(ted3_bbox_results['ted3_e_sum'])
-        ted3_e_sum = F.softplus(ted3_bbox_results['ted3_e_sum'])
+        ted3_e_sum = torch.exp(ted3_bbox_results['ted3_e_sum'])
+        # ted3_e_sum = F.softplus(ted3_bbox_results['ted3_e_sum'])
         e = e_sum * p_e
         ted3_e = ted3_e_sum * ted3_p_e
 
